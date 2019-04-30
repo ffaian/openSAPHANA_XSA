@@ -1,0 +1,9 @@
+{
+  "sources": {
+    "/hana/shared/HXE/xs/controller_data/executionagent/executionroot/ca862ea3-2461-4c84-8a36-46d4467da601/app/META-INF/.sap_java_buildpack/tomcat/temp/builder/sap.cds.mta/builds/build-3264958817023825025/openSAPHANA/srv/my-service.cds": "service CatalogService {\n}\n"
+  },
+  "dependencies": {},
+  "files": [
+    "/hana/shared/HXE/xs/controller_data/executionagent/executionroot/ca862ea3-2461-4c84-8a36-46d4467da601/app/META-INF/.sap_java_buildpack/tomcat/temp/builder/sap.cds.mta/builds/build-3264958817023825025/openSAPHANA/srv/my-service.cds"
+  ]
+}

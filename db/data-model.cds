@@ -1,7 +1,5 @@
-namespace my.bookshop;
+using from '../db/PurchaseOrder';
 
-entity Books {
+entity Base {
   key ID : Integer;
-  title  : String;
-  stock  : Integer;
 }
