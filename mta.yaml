@@ -17,16 +17,21 @@ modules:
         properties:
           key: ServiceName_1
           service: '~{the-service-name}'
-      - name: srv
-        group: SERVICE_REPLACEMENTS
-        properties:
-          key: ServiceName_2
-          service: '~{the-service-name}'
       - name: hdi_user_db
         group: SERVICE_REPLACEMENTS
         properties:
           key: hdi-user-service
           service: '~{user-container-name}'
+  
+      - name: cross-container-service-2
+        group: SERVICE_REPLACEMENTS
+
+        properties:
+          key: ServiceName_2
+          service: ~{the-service-name}
+                            
+
+
   - name: srv
     type: nodejs
     path: srv
@@ -51,9 +56,6 @@ modules:
       - name: hdi_user_db
         properties:
           TARGET_CONTAINER: '~{user-container-name}'
-
-  
-
 resources:
   - name: openSAPHANA-hdi-container
     properties:
@@ -77,5 +79,10 @@ resources:
       user-container-name: '${service-name}'
     type: com.sap.xs.hdi-container
 
-  
+  - name: cross-container-service-2
+    parameters:
+       service-name: opensap-central-container
+    properties:
+       the-service-name: ${service-name}
+    type: org.cloudfoundry.existing-service
 
