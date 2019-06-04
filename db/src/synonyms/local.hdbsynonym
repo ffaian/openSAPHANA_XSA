@@ -1,0 +1,9 @@
+{
+  "BUYER": {
+    "target": {
+      "object": "core.models::BUYER",
+      "schema": "OPENSAPHANA_OPENSAPHANA_HDI_CONTAINER_1",
+      "database": "SYSTEMDB"
+    }
+  }
+}
