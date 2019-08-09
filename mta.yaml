@@ -68,6 +68,7 @@ modules:
       - name: openSAPHANA-hdi-container
       - name: openSAPHANA_00-uaa
       - name: db
+      - name: sap.hana.democontent.epm.services.images
 resources:
   - name: openSAPHANA-hdi-container
     properties:
@@ -96,3 +97,9 @@ resources:
     properties:
       the-service-name: '${service-name}'
     type: org.cloudfoundry.existing-service
+  - name: sap.hana.democontent.epm.services.images
+    type: org.cloudfoundry.existing-service
+    parameters:
+      service-name: sap.hana.democontent.epm.services.images.00
+    properties:
+      xshttpdest-images-service-name: '${service-name}'
