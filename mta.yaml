@@ -39,6 +39,7 @@ modules:
           url: '${default-url}'
     requires:
       - name: openSAPHANA-hdi-container
+      - name: openSAPHANA_00-uaa
   - name: web
     type: html5
     path: web
@@ -48,6 +49,12 @@ modules:
         group: destinations
         properties:
           name: xsjs_api
+          url: '~{url}'
+          forwardAuthToken: true
+      - name: srv_api
+        group: destinations
+        properties:
+          name: srv_api
           url: '~{url}'
           forwardAuthToken: true
   - name: user_db
@@ -69,6 +76,7 @@ modules:
       - name: openSAPHANA_00-uaa
       - name: db
       - name: sap.hana.democontent.epm.services.images
+      - name: CROSS_SCHEMA_SFLIGHT
 resources:
   - name: openSAPHANA-hdi-container
     properties:
@@ -103,3 +111,7 @@ resources:
       service-name: sap.hana.democontent.epm.services.images.00
     properties:
       xshttpdest-images-service-name: '${service-name}'
+  - name: CROSS_SCHEMA_SFLIGHT
+    type: org.cloudfoundry.existing-service
+    parameters:
+      service-name: CROSS_SCHEMA_SFLIGHT_00

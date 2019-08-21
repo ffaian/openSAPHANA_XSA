@@ -1,15 +1,48 @@
 {
-  "name": "serve",
-  "dependencies": {
-    "@sap/cds": "2.x",
-    "express": "^4.16.2",
-    "@sap/xssec": "^2.1.12",
-    "@sap/xsenv": "^1.2.9",
-    "hdb": "^0.16.0"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "postinstall": "node .install.js && cds build/all --project .. --clean",
-    "start": "node ./node_modules/@sap/cds/bin/cds.js serve gen/csn.json"
-  }
+	"name": "serve",
+	"dependencies": {
+		"@sap/cds": "^2.10",
+		"express": "4.16.4",
+		"@sap/xssec": "2.1.15",
+		"@sap/xsenv": "1.2.9",
+		"hdb": "0.16.0",
+		"@sap/hdbext": "~5.0",
+		"@sap/hana-client": "~2.3",
+		"@sap/textbundle": "latest",
+		"@sap/logging": "~4.0",
+		"@sap/audit-logging": "2.2.4",
+		"nodemailer": "~4.6",
+		"passport": "~0.4.0",
+		"async": "latest",
+		"ws": "~6.1",
+		"accept-language-parser": "latest",
+		"node-xlsx": "~0.12",
+		"node-zip": "~1.1.1",
+		"xmldoc": "~1.1.2",
+		"winston": "~3.1",
+		"body-parser": "~1.18",
+		"elementtree": "latest",
+		"then-request": "latest",
+		"compression": "~1.7",
+		"helmet": "~3.15"
+	},
+	"scripts": {
+		"postinstall": "cds build/all --project .. --clean",
+		"start": "node server.js"
+	},
+	"engines": {
+		"node": "8.x",
+		"npm": "6.x"
+	},
+	"i18n": {
+		"folders": [
+			"_i18n"
+		]
+	},
+	"cds": {
+		"data": {
+			"driver": "hana"
+		}
+	}
+
 }
