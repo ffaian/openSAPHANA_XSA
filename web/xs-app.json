@@ -1,6 +1,5 @@
 {
 	"welcomeFile": "index.html",
-	"authenticationMethod": "route",
 	"logout": {
 		"logoutPage": "/logout.html",
 		"logoutEndpoint": "/my/logout"
@@ -8,12 +7,13 @@
 	"websockets": {
 		"enabled": true
 	},
+	"authenticationMethod": "route",
 	"routes": [{
 		"source": "/catalog/(.*)",
 		"destination": "srv_api",
 		"csrfProtection": true,
 		"authenticationType": "xsuaa"
-	},{
+	}, {
 		"source": "/odata/v4/(.*)",
 		"destination": "srv_api",
 		"csrfProtection": true,
@@ -23,14 +23,30 @@
 		"destination": "srv_api",
 		"csrfProtection": true,
 		"authenticationType": "xsuaa"
-	},{
+	}, {
 		"source": "(.*)(.xsjs)",
 		"destination": "xsjs_api",
-		"csrfProtection": true,
+		"csrfProtection": false,
 		"authenticationType": "xsuaa"
 	}, {
 		"source": "(.*)(.xsodata)",
 		"destination": "xsjs_api",
 		"authenticationType": "xsuaa"
+	},
+	{
+		"source": "/(.*)",
+		"localDir": "resources",
+		"authenticationType": "xsuaa",
+		"replace": {
+			"pathSuffixes": [
+				"index.html",
+				"odataTest.html"
+			],
+			"services": {
+				"sapui5_sb": {
+					"tag": "ui5"
+				}
+			}
+		}
 	}]
 }
